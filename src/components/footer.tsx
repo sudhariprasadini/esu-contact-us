@@ -71,9 +71,10 @@ const FooterContactUs = () => {
           </div>
         </div>
         <div className="w-full lg:h-[34px] h-auto text-white flex justify-center items-center text-[14px]">
-          Copyright © 2025{" "}
-          <span className="font-bold px-1"> ESU METRO CAMPUS </span> All rights
-          reserved. Website Designed And Developed By Web Lankan
+          <p>
+            Copyright © 2025 ESU METRO CAMPUS All rights reserved. Website
+            Designed And Developed By Web Lankan
+          </p>
         </div>
       </div>
     </div>
