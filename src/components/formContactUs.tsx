@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 type ContactFormData = {
   firstName: string;
@@ -17,6 +18,7 @@ type ContactFormData = {
 };
 
 const FormContactUs = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
     handleSubmit,
@@ -24,40 +26,73 @@ const FormContactUs = () => {
     reset,
     formState: { errors },
   } = useForm<ContactFormData>();
+  const [alertMessage, setAlertMessage] = useState<{
+    type: "success" | "error";
+    title: string;
+    description: string;
+  } | null>(null);
 
-  const onSubmit = (data: ContactFormData) => {
-    const formData = new FormData();
-    formData.append("firstName", data.firstName);
-    formData.append("lastName", data.lastName);
-    formData.append("nationality", data.nationality);
-    formData.append("contact", data.contact);
-    formData.append("email", data.email);
-    formData.append("nic", data.nic);
-    if (data.nicValue) {
-      formData.append("nicValue", data.nicValue);
+  useEffect(() => {
+    if (alertMessage) {
+      const timer = setTimeout(() => {
+        setAlertMessage(null);
+      }, 10000);
+      return () => clearTimeout(timer);
     }
-    formData.append("branch", data.branch);
-    formData.append("programme", data.programme);
-    formData.append("message", data.message);
-    if (data.documents) {
-      Array.from(data.documents).forEach((file) => {
-        formData.append("documents", file);
+  }, [alertMessage]);
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    setAlertMessage(null);
+    try {
+      const formData = new FormData();
+      formData.append("firstName", data.firstName);
+      formData.append("lastName", data.lastName);
+      formData.append("nationality", data.nationality);
+      formData.append("contact", data.contact);
+      formData.append("email", data.email);
+      formData.append("nic", data.nic);
+      if (data.nicValue) {
+        formData.append("nicValue", data.nicValue);
+      }
+      formData.append("branch", data.branch);
+      formData.append("programme", data.programme);
+      formData.append("message", data.message);
+      if (data.documents) {
+        Array.from(data.documents).forEach((file) => {
+          formData.append("documents", file);
+        });
+      }
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
       });
-    }
-    fetch("/api/contact", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        alert("Form submitted successfully!");
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log("Success:", result);
+        setAlertMessage({
+          type: "success",
+          title: "Form submitted successfully!",
+          description:
+            "Thank you for contacting us. We will get back to you soon.",
+        });
         reset();
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("There was an error submitting the form.");
+      } else {
+        throw new Error(result.message || "Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setAlertMessage({
+        type: "error",
+        title: "Submission failed",
+        description:
+          "There was an error submitting the form. Please try again.",
       });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const nicSelection = watch("nic");
@@ -70,6 +105,25 @@ const FormContactUs = () => {
             Get in Touch with us
           </h1>
         </div>
+
+        {alertMessage && (
+          <div className="lg:px-[185px] px-[20px] mb-6">
+            <Alert
+              variant={
+                alertMessage.type === "error" ? "destructive" : "default"
+              }
+              className={`${
+                alertMessage.type === "success"
+                  ? "bg-green-50 border-green-200 text-green-800"
+                  : ""
+              }`}
+            >
+              <AlertTitle>{alertMessage.title}</AlertTitle>
+              <AlertDescription>{alertMessage.description}</AlertDescription>
+            </Alert>
+          </div>
+        )}
+
         <div className="lg:px-[185px] px-[20px]">
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -252,9 +306,40 @@ const FormContactUs = () => {
             <div className="md:col-span-2 flex justify-center">
               <button
                 type="submit"
-                className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded md:w-[250px]"
+                disabled={isSubmitting}
+                className={`${
+                  isSubmitting
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-cyan-500 hover:bg-cyan-600"
+                } text-white font-semibold py-2 px-6 rounded md:w-[250px] flex items-center justify-center`}
               >
-                Submit
+                {isSubmitting ? (
+                  <>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </div>
           </form>

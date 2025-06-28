@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import footerImage from "@/images/footer-image-ESU.svg";
 import FooterImage1 from "@/images/FooterImage1.svg";
+import FooterImage2 from "@/images/FooterImage2.svg";
 
 const FooterContactUs = () => {
   return (
@@ -29,6 +30,10 @@ const FooterContactUs = () => {
               <br />
               Colombo 4,Sri Lanka.
             </p>
+            <div className="flex flex-row items-center gap-2 mt-[20px]">
+              <h1 className="font-bold text-[18px]">AWARDS</h1>
+              <Image src={FooterImage2} alt="Location Icon" />
+            </div>
           </div>
           <div className="lg:pl-[96px] pl-[40px]">
             <p className="font-bold mb-[20px]">QUICK LINKS</p>

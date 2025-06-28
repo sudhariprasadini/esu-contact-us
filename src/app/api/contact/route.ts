@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         Nationality: ${nationality}
         Contact: ${contact}
         Email: ${email}
-        NIC Type: ${nic}
+        Type (NIC/Passport): ${nic}
         NIC/Passport Number: ${nicValue}
         Branch: ${branch}
         Programme: ${programme}
