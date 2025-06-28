@@ -21,7 +21,9 @@ const HeaderContactUs = () => {
           <p>Research</p>
           <p>Scholarship</p>
           <p>CSR</p>
-          <p>contact us</p>
+          <p>
+            <a href="/contact-us">contact us</a>
+          </p>
         </div>
 
         <div className="lg:hidden">

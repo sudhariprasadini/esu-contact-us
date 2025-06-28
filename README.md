@@ -2,6 +2,10 @@
 
 This is a [Next.js](https://nextjs.org) contact form application for ESU Metro Campus, built with TypeScript, Tailwind CSS, and React Hook Form.
 
+## 🚀 Live Demo
+
+**🌐 Deployment URL:** [https://esu-contact-us.vercel.app/](https://esu-contact-us.vercel.app/)
+
 ## Features
 
 - Responsive contact form with validation
@@ -154,7 +158,15 @@ Accepts FormData with form fields and file attachments. Sends email using Nodema
 
 ## Deploy on Vercel
 
+This application is deployed on Vercel and automatically updates with every push to the main branch.
+
+**🌐 Live Application:** [https://esu-contact-us.vercel.app/](https://esu-contact-us.vercel.app/)
+
+### Deploy Your Own
+
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/esu-contact-us)
 
 **Important:** Don't forget to add your environment variables in Vercel's dashboard:
 
