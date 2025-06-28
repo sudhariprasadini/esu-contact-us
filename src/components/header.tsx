@@ -10,7 +10,7 @@ const HeaderContactUs = () => {
 
   return (
     <div>
-      <div className="w-full h-[55px] bg-[#100B25] px-[40px] py-[18px] flex justify-between items-center">
+      <div className="w-full h-[55px] bg-[#100B25] lg:px-[60px] px-[40px] py-[18px] flex justify-between items-center">
         <div className="text-white lg:flex flex-row gap-[30px] uppercase hidden">
           <p>home</p>
           <p>about us</p>

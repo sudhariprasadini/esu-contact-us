@@ -20,11 +20,11 @@ const FooterContactUs = () => {
           <div className="lg:ml-[160px] pl-[40px]">
             <p className="font-bold mb-[20px]">CONTACT DETAILS</p>
             <p>Hotline Number</p>
-            <p>+94117572572</p>
+            <p className="font-bold mb-[10px]">+94117572572</p>
             <p>Email</p>
-            <p>info@esoft.lk</p>
+            <p className="font-bold mb-[10px]">info@esoft.lk</p>
             <p>Head Office(Block E)</p>
-            <p>
+            <p className="font-bold mb-[10px]">
               ESOFT Metro Campus No.03,
               <br /> De Fonseka Place,
               <br />
@@ -37,7 +37,7 @@ const FooterContactUs = () => {
           </div>
           <div className="lg:pl-[96px] pl-[40px]">
             <p className="font-bold mb-[20px]">QUICK LINKS</p>
-            <ul className="flex flex-col gap-[14px] list-disc">
+            <ul className="flex flex-col gap-[14px] list-disc lg:ml-0 ml-[40px]">
               <li>Home </li>
               <li>Student Life</li>
               <li>About Us</li>
@@ -48,9 +48,9 @@ const FooterContactUs = () => {
               <li>CSR</li>
             </ul>
           </div>
-          <div className="lg:pl-[136px] pl-[40px] flex flex-col">
+          <div className="lg:pl-[116px] pl-[40px] flex flex-col">
             <h3 className="font-bold mb-[20px]">IMPORTANT LINKS</h3>
-            <ul className="flex flex-col gap-[14px] list-disc">
+            <ul className="flex flex-col gap-[14px] list-disc lg:ml-0 ml-[40px]">
               <li>Courses</li>
               <li>Faculties</li>
               <li>Transfer Programmes </li>
@@ -62,15 +62,10 @@ const FooterContactUs = () => {
             </ul>
           </div>
           <div className="ml-[29]">
-            <Image
-              src={footerImage}
-              alt="Description"
-              width={877}
-              height={483}
-            />
+            <Image src={footerImage} alt="Description" />
           </div>
         </div>
-        <div className="w-full lg:h-[34px] h-auto text-white flex justify-center items-center text-[14px]">
+        <div className="w-full lg:h-[34px] h-auto text-white flex justify-center items-center text-[14px] lg:px-0 px-[40px]">
           <p>
             Copyright © 2025 ESU METRO CAMPUS All rights reserved. Website
             Designed And Developed By Web Lankan
