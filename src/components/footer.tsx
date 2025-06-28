@@ -1,15 +1,23 @@
 import Image from "next/image";
 import React from "react";
 import footerImage from "@/images/footer-image-ESU.svg";
+import FooterImage1 from "@/images/FooterImage1.svg";
 
 const FooterContactUs = () => {
   return (
     <div>
-      <div className="w-full h-[703px] bg-[#02AEC9] flex flex-col">
-        <div className="w-full h-[141px]"></div>
-        <div className="bg-[#100B25] w-full h-full flex flex-row text-[18px] text-white pt-[60px]">
-          <div className="ml-[160px]">
-            <p className="font-bold mb-[20px]">CONTACT SETAILS</p>
+      <div className="w-full lg:h-[703px] h-auto bg-[#02AEC9] flex flex-col mx-40px lg:mx-0">
+        <div className="w-full  lg:h-[141px] p-5 flex lg:flex-row flex-col justify-between items-center lg:px-[140px] px-[40px]">
+          <div>
+            <h1 className="font-bold text-[60px]">#ESULife</h1>
+          </div>
+          <div className="bg-[#016879]">
+            <Image src={FooterImage1} alt="Footer Image" />
+          </div>
+        </div>
+        <div className="bg-[#100B25] w-full h-full flex lg:flex-row  flex-col text-[18px] text-white pt-[60px] lg:gap-5 gap-10">
+          <div className="lg:ml-[160px] pl-[40px]">
+            <p className="font-bold mb-[20px]">CONTACT DETAILS</p>
             <p>Hotline Number</p>
             <p>+94117572572</p>
             <p>Email</p>
@@ -22,7 +30,7 @@ const FooterContactUs = () => {
               Colombo 4,Sri Lanka.
             </p>
           </div>
-          <div className="pl-[96px]">
+          <div className="lg:pl-[96px] pl-[40px]">
             <p className="font-bold mb-[20px]">QUICK LINKS</p>
             <ul className="flex flex-col gap-[14px] list-disc">
               <li>Home </li>
@@ -35,7 +43,7 @@ const FooterContactUs = () => {
               <li>CSR</li>
             </ul>
           </div>
-          <div className="pl-[136px] flex flex-col">
+          <div className="lg:pl-[136px] pl-[40px] flex flex-col">
             <h3 className="font-bold mb-[20px]">IMPORTANT LINKS</h3>
             <ul className="flex flex-col gap-[14px] list-disc">
               <li>Courses</li>
@@ -57,7 +65,11 @@ const FooterContactUs = () => {
             />
           </div>
         </div>
-        <div className="w-full h-[34px]"></div>
+        <div className="w-full lg:h-[34px] h-auto text-white flex justify-center items-center text-[14px]">
+          Copyright © 2025{" "}
+          <span className="font-bold px-1"> ESU METRO CAMPUS </span> All rights
+          reserved. Website Designed And Developed By Web Lankan
+        </div>
       </div>
     </div>
   );

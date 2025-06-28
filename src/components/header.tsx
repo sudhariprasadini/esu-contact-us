@@ -4,7 +4,7 @@ const HeaderContactUs = () => {
   return (
     <div>
       <div className="w-full h-[55px] bg-[#100B25] px-[60px] py-[18px] flex justify-between">
-        <div className="text-white flex flex-row gap-[30px] uppercase">
+        <div className="text-white lg:flex flex-row gap-[30px] uppercase hidden">
           <p>home</p>
           <p>about us</p>
           <p>students life</p>

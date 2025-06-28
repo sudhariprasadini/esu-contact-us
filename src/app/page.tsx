@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Body />
       <Career />
-      <div className="flex lg:flex-row flex-col lg:gap-[12px] mt-10 lg:px-[180px]">
+      <div className="flex lg:flex-row flex-col lg:gap-[12px] mt-10 justify-center ">
         <ReuseAddressSection
           title="Certificate and"
           highlightedWord="Transcript"
@@ -24,6 +24,7 @@ export default function Home() {
           phone="+94117572572"
         />
         <ReuseAddressSection
+          className="lg:mt-0 mt-16"
           title="Complaints and"
           highlightedWord="Student Feedback"
           address={{

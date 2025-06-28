@@ -64,11 +64,13 @@ const FormContactUs = () => {
 
   return (
     <div>
-      <div className="lg:mx-[300px] lg:my-[150px] lg:py-[100px] lg:h-auto md:h-auto bg-[#100B25] rounded-3xl text-white">
+      <div className="lg:mx-[300px] lg:my-[150px] lg:py-[100px] lg:h-auto  bg-[#100B25] rounded-3xl text-white py-[40px] my-[40px] mx-[20px]">
         <div className="flex justify-center ">
-          <h1 className=" text-[40px] font-extrabold">Get in Touch with us</h1>
+          <h1 className=" lg:text-[40px] text-[28px] font-extrabold">
+            Get in Touch with us
+          </h1>
         </div>
-        <div className="px-[185px]">
+        <div className="lg:px-[185px] px-[20px]">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="grid grid-cols-1 md:grid-cols-2 gap-y-[45px] gap-x-[96px]"
