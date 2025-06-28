@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/dist/client/link";
 import React, { useState } from "react";
 
 const HeaderContactUs = () => {
@@ -12,7 +13,9 @@ const HeaderContactUs = () => {
     <div>
       <div className="w-full h-[55px] bg-[#100B25] lg:px-[60px] px-[40px] py-[18px] flex justify-between items-center">
         <div className="text-white lg:flex flex-row gap-[30px] uppercase hidden">
-          <p>home</p>
+          <p>
+            <Link href="/">home</Link>
+          </p>
           <p>about us</p>
           <p>students life</p>
           <p>careers</p>
@@ -22,7 +25,7 @@ const HeaderContactUs = () => {
           <p>Scholarship</p>
           <p>CSR</p>
           <p>
-            <a href="/contact-us">contact us</a>
+            <Link href="/contact-us">contact us</Link>
           </p>
         </div>
 
@@ -61,7 +64,9 @@ const HeaderContactUs = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-[#100B25] px-[60px] py-4">
           <div className="text-white flex flex-col gap-4 uppercase">
-            <p>home</p>
+            <p>
+              <Link href="/">home</Link>
+            </p>
             <p>about us</p>
             <p>students life</p>
             <p>careers</p>
@@ -71,7 +76,7 @@ const HeaderContactUs = () => {
             <p>Scholarship</p>
             <p>CSR</p>
             <p>
-              <a href="/contact-us">contact us</a>
+              <Link href="/contact-us">contact us</Link>
             </p>
           </div>
         </div>

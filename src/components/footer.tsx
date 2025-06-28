@@ -3,6 +3,7 @@ import React from "react";
 import footerImage from "@/images/footer-image-ESU.svg";
 import FooterImage1 from "@/images/FooterImage1.svg";
 import FooterImage2 from "@/images/FooterImage2.svg";
+import Link from "next/link";
 
 const FooterContactUs = () => {
   return (
@@ -38,10 +39,14 @@ const FooterContactUs = () => {
           <div className="lg:pl-[96px] pl-[40px]">
             <p className="font-bold mb-[20px]">QUICK LINKS</p>
             <ul className="flex flex-col gap-[14px] list-disc lg:ml-0 ml-[40px]">
-              <li>Home </li>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
               <li>Student Life</li>
               <li>About Us</li>
-              <li>Contact Us</li>
+              <li>
+                <Link href="/contact-us">Contact us</Link>
+              </li>
               <li>Careers</li>
               <li>News & Event</li>
               <li>Blogs</li>
